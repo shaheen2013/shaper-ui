@@ -1,0 +1,1 @@
+export { default as DocAlert } from './DocAlert.vue'; 

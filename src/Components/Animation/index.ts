@@ -1,0 +1,1 @@
+export { default as Tap } from './Tap.vue'; 
