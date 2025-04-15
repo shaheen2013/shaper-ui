@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist && tsc && vue-tsc --noEmit",
+    "build": "tsc && vue-tsc --noEmit",
     "prepublishOnly": "npm run build",
     "release": "npm publish --access public"
   },
@@ -31,11 +31,16 @@
   },
   "peerDependencies": {
     "@fingerprintjs/fingerprintjs": "^4.6.2",
+    "@inertiajs/vue3": "^2.0.8",
+    "@types/crypto-js": "^4.2.2",
+    "axios": "^1.8.4",
     "clsx": "^2.1.1",
     "crypto-js": "^4.2.0",
     "localforage": "^1.10.0",
     "tailwind-merge": "^3.2.0",
-    "@types/crypto-js": "^4.2.2",
-    "axios": "^1.8.4"
+    "uuid": "^11.1.0",
+    "vee-validate": "^4.15.0",
+    "vue": "^3.5.13",
+    "ziggy-js": "^2.5.2"
   }
 }
