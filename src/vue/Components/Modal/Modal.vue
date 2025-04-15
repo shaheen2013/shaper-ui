@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import { computed, onBeforeUnmount, onMounted, Ref, ref } from "vue";
 import { cn } from "./../../Utils/cn";
 
 const props = defineProps<{
@@ -22,7 +22,7 @@ const props = defineProps<{
   teleport?: string; // New optional prop for teleport target
 }>();
 
-const modalRef = ref<HTMLElement | null>(null);
+const modalRef = ref<HTMLElement | null>(null) as Ref<HTMLElement | null>;
 
 const handleClickOutside = (event: MouseEvent) => {
   if (event.target === modalRef.value && !props.allowOutsideClick) {

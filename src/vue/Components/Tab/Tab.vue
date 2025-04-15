@@ -1,7 +1,14 @@
 <script setup lang="ts">
-import { onUnmounted } from "vue";
+import { onUnmounted, type Component } from "vue";
 import { setPaginationQueryData } from "./../../Utils/paginationUtils";
 import TabButton from "./TabButton.vue";
+
+type Tab = {
+  label: string;
+  value: string | number;
+  counter?: number;
+  icon?: Component;
+};
 
 const props = defineProps<{
   tabData: Tab[];

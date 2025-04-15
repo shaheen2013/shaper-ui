@@ -1,5 +1,5 @@
 import { AxiosRequestConfig, AxiosResponse } from "axios";
-import { ref, watchEffect } from "vue";
+import { Ref, ref, watchEffect } from "vue";
 import { deepFilter, deepModify } from "../../Utils/commonUtils";
 import { Axios } from "./axios";
 
@@ -7,12 +7,33 @@ type ServerErrorType = {
   [key: string]: string[];
 };
 
+// Define a return type interface
+export interface ApiReturn<T> {
+  callApi: (
+    route: string,
+    method?: MethodType,
+    payload?: any,
+    params?: any,
+    refetching?: boolean,
+  ) => Promise<any>;
+  refetch: () => Promise<void>;
+  reset: () => void;
+  data: Ref<T | null>;
+  isRefetching: Ref<boolean>;
+  isLoading: Ref<boolean>;
+  error: Ref<string | null>;
+  errors: Ref<ServerErrorType>;
+  isError: Ref<boolean>;
+  isSuccess: Ref<boolean>;
+  errorStatusCode: Ref<number | null>;
+}
+
 type MethodType = "GET" | "POST" | "PUT" | "DELETE";
 
 export function useApi<T = any>(
   setErrors?: (errors: Record<string, string>) => void,
-) {
-  const data = ref<T | null>(null);
+): ApiReturn<T> {
+  const data = ref<T | null>(null) as Ref<T | null>;
   const isLoading = ref(false);
   const error = ref<string | null>(null);
   const errors = ref<ServerErrorType>({});
@@ -47,7 +68,7 @@ export function useApi<T = any>(
     method: MethodType = "GET",
     payload: any = null,
     params: any = null,
-    refetching: boolean = false
+    refetching: boolean = false,
   ) => {
     const callId = ++activeCallId;
 
@@ -71,13 +92,12 @@ export function useApi<T = any>(
       if (typeof value === "boolean") {
         return value ? 1 : 0;
       }
-    
+
       return value;
     });
     filteredPayload = deepFilter(filteredPayload, (value) => {
       return value !== null && value !== undefined;
     });
-   
 
     try {
       const formDataPayload = new FormData();
@@ -112,7 +132,6 @@ export function useApi<T = any>(
 
       const response: AxiosResponse = await Axios(options);
 
-     
       if (callId === activeCallId) {
         data.value = response.data;
         isSuccess.value = true;
@@ -150,7 +169,7 @@ export function useApi<T = any>(
       callApiArgState.value.method,
       callApiArgState.value.payload,
       callApiArgState.value.params,
-      true
+      true,
     );
     isRefetching.value = false;
   };

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useField } from "vee-validate";
-import { onMounted, ref, toRefs, watch } from "vue";
+import { onMounted, Ref, ref, toRefs, watch } from "vue";
 import DeleteIcon from "../../Icons/DeleteIcon.vue";
 import ImagePlusIcon from "../../Icons/ImagePlusIcon.vue";
 import { cn } from "./../../../Utils/cn";
@@ -26,7 +26,7 @@ const props = withDefaults(
   },
 );
 
-const inputRef = ref<HTMLInputElement | null>(null);
+const inputRef = ref<HTMLInputElement | null>(null) as Ref<HTMLInputElement>;
 
 const selectedImage = ref<File | null>(null);
 const imagePreview = ref<string | null>(null);

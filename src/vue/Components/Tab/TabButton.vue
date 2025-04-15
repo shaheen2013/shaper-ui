@@ -8,7 +8,7 @@ const props = defineProps<{
   counter?: number | null;
   onClick: () => void;
   active: boolean;
-  icon: Component | string; // Allow icon to be a Vue component or a string
+  icon?: Component | string; // Allow icon to be a Vue component or a string
 }>();
 
 const activeBtnClasses =
