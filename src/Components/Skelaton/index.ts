@@ -1,0 +1,1 @@
+export { default as Skelaton } from './Skelaton.vue'; 
