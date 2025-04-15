@@ -1,0 +1,41 @@
+{
+    "name": "@mediusware/lensixui",
+    "version": "0.0.1",
+    "description": "Ui library for vuejs",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "README.md",
+        "CHANGELOG.md"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "rm -R ./dist && tsc",
+        "prepublishOnly": "npm run build",
+        "release": "npm publish --access public"
+    },
+    "keywords": [
+        "vuejs",
+        "ui",
+        "library",
+        "components"
+    ],
+    "author": "shaheen2013",
+    "license": "ISC",
+    "type": "commonjs",
+    "devDependencies": {
+        "@types/node": "^22.14.0",
+        "@types/pg": "^8.10.9",
+        "typescript": "^5.8.3",
+        "drizzle-orm": "^0.41.0"
+    },
+    "peerDependencies": {
+        "drizzle-orm": "^0.41.0",
+        "pg": "^8.11.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": ""
+    }
+}
