@@ -3,7 +3,7 @@ import { usePage } from "@inertiajs/vue3";
 import localforage from "localforage";
 import { onMounted, onUnmounted } from "vue";
 import { route } from "ziggy-js";
-import { Axios } from "../Fetchers/BaseAxios";
+import { Axios } from "../Fetchers/axios";
 import { useApi } from "../Fetchers/useApi";
 import { addSessionToUrl, decryptData, encryptData } from "./../../Utils/utils";
 
