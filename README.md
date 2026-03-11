@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="arts/logo.png" alt="alt text">
+</div>
+
 # @mediusware/shaper-ui
 
 A simple opinionated UI library for Vue.js
