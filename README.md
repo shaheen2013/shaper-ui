@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="arts/logo.png" alt="alt text" height="250" width="250">
+  <img src="arts/logo-500x500.png" alt="alt text" height="250" width="250">
 </div>
 
 # @mediusware/shaper-ui
